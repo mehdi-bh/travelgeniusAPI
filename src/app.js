@@ -8,8 +8,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const avatarRoutes = require('./routes/avatarRoutes');
+const tripRoutes = require('./routes/tripRoutes');
 
 app.use('/api/avatars', avatarRoutes);
+app.use('/api/trips', tripRoutes);
+
+
+/** **/
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
