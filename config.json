@@ -1,0 +1,8 @@
+{
+  "REGION": "eu-west-3",
+  "STAGE": "dev",
+  "TABLES": {
+    "AVATAR_TABLE": "avatars",
+    "TRIP_TABLE": "trips"
+  }
+}

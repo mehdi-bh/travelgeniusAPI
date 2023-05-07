@@ -1,7 +1,8 @@
 const {documentClient} = require('../config/aws');
+const config = require( '../../config.json' );
 const uuid = require('uuid');
 
-const tableName = 'avatars';
+const tableName = config.TABLES.AVATAR_TABLE;
 
 class AvatarService {
     async getAvatars() {

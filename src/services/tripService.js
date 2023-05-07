@@ -1,7 +1,8 @@
 const {documentClient} = require('../config/aws');
+const config = require( '../../config.json' );
 const uuid = require('uuid');
 
-const tableName = 'trips';
+const tableName = config.TABLES.TRIP_TABLE;
 
 class TripService {
     async getTrips() {

@@ -1,0 +1,40 @@
+service: travel-genius-api-lambda
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-west-3
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "dynamodb:*"
+            - "lambda:InvokeFunction"
+            - "apigateway:*"
+          Resource: "*"
+
+functions:
+  getAvatars:
+    handler: handlers/avatarHandler.getAvatars
+    events:
+      - http:
+          path: /api/avatars
+          method: get
+          cors: true
+  addAvatar:
+    handler: handlers/avatarHandler.addAvatar
+    events:
+      - http:
+          path: /api/avatars
+          method: post
+          cors: true
+  getTrips:
+    handler: handlers/tripHandler.getTrips
+    events:
+      - http:
+          path: /api/trips
+          method: get
+          cors: true
+
